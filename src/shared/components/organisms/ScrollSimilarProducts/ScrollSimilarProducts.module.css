@@ -1,0 +1,46 @@
+.similar-list {
+  margin-top: 4rem;
+  position: relative;
+  overflow-x: scroll;
+  margin-left: calc(-50vw + 50%);
+  padding-left: 1.6rem;
+  margin-right: calc(-50vw + 50%);
+  padding-right: 1.6rem;
+}
+
+.similar-list::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scrollbar {
+  position: relative;
+  height: 1px;
+  background: var(--color-quinary);
+  margin-top: 4rem;
+  overflow: hidden;
+  margin-bottom: 10rem;
+}
+
+.custom-thumb {
+  height: 100%;
+  background: var(--color-primary);
+  width: 15rem;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+@media (min-width: 834px) {
+  .similar-list {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .similar-list {
+    padding-left: calc((100vw - 112rem) / 2);
+    padding-right: calc((100vw - 112rem) / 2);
+  }
+}
