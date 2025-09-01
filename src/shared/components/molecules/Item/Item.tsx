@@ -15,7 +15,7 @@ const Item = ({ item }: ItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <Link
-      href={`/product/${item.id}`}
+      href={`/products/${item.id}`}
       key={item.id}
       role="link"
       aria-labelledby={`title-${item.id}`}
