@@ -2,11 +2,11 @@ import Image from "next/image";
 import { getProduct } from "@/feature/products/services";
 
 interface ProductPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
-
 export default async function ProductPage({ params }: ProductPageProps) {
-  const product = await getProduct(params.id);
+  const { id } = await params;
+  const product = await getProduct(id);
 
   return (
     <main className="p-4">
