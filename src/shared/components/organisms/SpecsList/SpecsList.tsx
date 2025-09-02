@@ -1,10 +1,10 @@
-import { ProductDetailsData } from "../../../types/productDetail";
-import { formatSpecList, humanizeKey } from "../../../utils";
+import { formatSpecList, humanizeKey } from "@/shared/utils/text";
 import Typography from "../../atoms/Typography";
 import style from "./SpecsList.module.css";
+import { Product } from "@/shared/types/product.interface";
 
 interface SpecsListProps {
-  data: ProductDetailsData;
+  data: Product;
 }
 
 const SpecsList = ({ data }: SpecsListProps) => {
@@ -20,7 +20,7 @@ const SpecsList = ({ data }: SpecsListProps) => {
             as="p"
           />
           <Typography
-            content={value}
+            content={String(value)}
             size="sm"
             weight="light"
             color="primary"

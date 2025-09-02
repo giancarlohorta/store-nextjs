@@ -1,0 +1,172 @@
+.container {
+  max-width: 120rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+}
+
+.back-container {
+  max-width: 120rem;
+  width: 100%;
+  padding: 0 1.6rem;
+}
+
+.back-button {
+  max-width: 5.6rem;
+}
+
+.back-button img {
+  margin-right: 1rem;
+}
+
+.back-text {
+  margin-left: 3.15px;
+}
+
+.image-content {
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  max-width: 26rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 8rem;
+}
+
+.details-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.storage-title {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.container-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.capacity-button {
+  width: 9.5rem;
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-quinary);
+  border-right: none;
+}
+
+.capacity-button:last-child {
+  border-right: 1px solid var(--color-quinary);
+}
+
+.active {
+  border: 1px solid var(--color-primary) !important;
+}
+
+.color-title {
+  margin-top: 4rem;
+  margin-bottom: 2.4rem;
+}
+
+.color-name {
+  margin-top: 0.8rem;
+  height: 1.8rem;
+}
+
+.add-button {
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.add-button:disabled {
+  background-color: var(--color-disabled);
+  color: var(--color-senary);
+}
+
+.similar-content {
+  margin-top: 8rem;
+}
+
+@media (min-width: 834px) {
+  .container {
+    padding: 4.8rem 4rem;
+  }
+  .back-container {
+    display: none;
+  }
+
+  .image-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 5.5rem;
+  }
+  .product-image {
+    max-width: 33.7rem;
+  }
+
+  .main-content {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 8.8rem;
+  }
+  .details-content {
+    max-width: 36.2rem;
+    margin-top: 0;
+  }
+  .add-button {
+    max-width: 26rem;
+  }
+  .similar-content {
+    margin-top: 8.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .back-container {
+    display: flex;
+    padding: 0 4rem;
+  }
+  .main-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15.4rem;
+  }
+
+  .product-image {
+    max-width: 51rem;
+  }
+
+  .details-content {
+    max-width: 38rem;
+  }
+  .capacity-button {
+    width: 9.5rem;
+    height: 6.5rem;
+  }
+  .add-button {
+    max-width: 38rem;
+  }
+  .similar-content {
+    margin-top: 15.4rem;
+  }
+}

@@ -28,6 +28,8 @@ export const getIcon = (iconName: string) => {
       return (
         <Image src="/assets/close.svg" alt="close" width={18} height={18} />
       );
+    case "back":
+      return <Image src="/assets/back.svg" alt="back" width={10} height={10} />;
     default:
       return (
         <Image src="/assets/logo.svg" alt="MBST logo" width={18} height={18} />
