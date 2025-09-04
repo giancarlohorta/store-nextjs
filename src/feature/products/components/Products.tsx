@@ -1,14 +1,9 @@
 "use client";
 import ListItem from "@/shared/components/organisms/ListItem";
 import SearchArea from "@/shared/components/organisms/SearchArea";
-import { Product } from "@/shared/types/product.interface";
 import styles from "./Products.module.css";
-
 import React from "react";
-
-interface ProductsProps {
-  products: Product[];
-}
+import { ProductsProps } from "../types";
 
 const Products = ({ products }: ProductsProps) => {
   return (

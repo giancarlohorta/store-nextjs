@@ -12,6 +12,24 @@ export const formatSpecList = (productData: Product) => {
     brand: productData.brand,
     name: productData.title,
     description: productData.description,
+    sku: productData.sku,
     ...productData.dimensions,
   };
+};
+
+export const unitFormat = (value: number, unit: string) => {
+  return `${value} ${unit}`;
+};
+
+export const formatAdapter = (key: string, value: string) => {
+  switch (key) {
+    case "width":
+      return unitFormat(Number(value), "mm");
+    case "height":
+      return unitFormat(Number(value), "mm");
+    case "depth":
+      return unitFormat(Number(value), "mm");
+    default:
+      return value;
+  }
 };

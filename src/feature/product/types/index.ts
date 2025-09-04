@@ -1,5 +1,5 @@
 import { Product } from "@/shared/types/product.interface";
 
-export interface ProductsProps {
-  products: Product[];
+export interface ProductProps {
+  data: Product;
 }

@@ -1,5 +1,5 @@
-import { getProduct } from "@/feature/products/services";
-import Product from "@/feature/Product";
+import Product from "@/feature/product/components";
+import { getProduct } from "@/feature/product/services";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;

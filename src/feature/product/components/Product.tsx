@@ -4,13 +4,10 @@ import Button from "@/shared/components/atoms/Button";
 import { getIcon } from "@/shared/utils/icon";
 import Typography from "@/shared/components/atoms/Typography";
 import { formatText } from "@/shared/utils/text";
-import { Product as ProductInterface } from "@/shared/types/product.interface";
 import Image from "next/image";
 import SpecsList from "@/shared/components/organisms/SpecsList";
-
-interface ProductProps {
-  data: ProductInterface;
-}
+import { ProductProps } from "../types";
+import ReviewRating from "@/shared/components/atoms/ReviewRating";
 
 const Product = ({ data }: ProductProps) => {
   const isLoading = false;
@@ -22,6 +19,8 @@ const Product = ({ data }: ProductProps) => {
   };
 
   const image = (data?.images ? data.images[0] : "") as string;
+
+  console.log(data);
 
   return (
     <>
@@ -62,6 +61,23 @@ const Product = ({ data }: ProductProps) => {
                   color="primary"
                   as="h1"
                 />
+                <div className={style["review-rating"]}>
+                  <ReviewRating rating={data.rating} />
+                  <Typography
+                    content={String(data.rating)}
+                    size="xs"
+                    weight="light"
+                    color="primary"
+                    as="p"
+                  />
+                </div>
+                <Typography
+                  content={data.category}
+                  size="md"
+                  weight="light"
+                  color="primary"
+                  as="p"
+                />
                 <Typography
                   content={`${data.price} EUR`}
                   size="lg"
@@ -69,6 +85,28 @@ const Product = ({ data }: ProductProps) => {
                   color="primary"
                   as="p"
                 />
+
+                <div className={style.tags}>
+                  {data.tags &&
+                    data.tags.map((tag) => {
+                      return (
+                        <Button
+                          key={tag}
+                          type="link"
+                          link="/"
+                          className={style.tag}
+                        >
+                          <Typography
+                            content={tag}
+                            size="sm"
+                            weight="light"
+                            color="primary"
+                            as="p"
+                          />
+                        </Button>
+                      );
+                    })}
+                </div>
 
                 <Button
                   className={style["add-button"]}

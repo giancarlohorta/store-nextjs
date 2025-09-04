@@ -1,4 +1,8 @@
-import { formatSpecList, humanizeKey } from "@/shared/utils/text";
+import {
+  formatAdapter,
+  formatSpecList,
+  humanizeKey,
+} from "@/shared/utils/text";
 import Typography from "../../atoms/Typography";
 import style from "./SpecsList.module.css";
 import { Product } from "@/shared/types/product.interface";
@@ -20,7 +24,7 @@ const SpecsList = ({ data }: SpecsListProps) => {
             as="p"
           />
           <Typography
-            content={String(value)}
+            content={formatAdapter(key, String(value))}
             size="sm"
             weight="light"
             color="primary"
