@@ -1,3 +1,5 @@
+import Cart from "@/feature/cart/components/Cart";
+
 export default function CartPage() {
-  return <div>Cart Page</div>;
+  return <Cart />;
 }

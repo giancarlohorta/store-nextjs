@@ -20,8 +20,6 @@ const Product = ({ data }: ProductProps) => {
 
   const image = (data?.images ? data.images[0] : "") as string;
 
-  console.log(data);
-
   return (
     <>
       <div className={style["back-container"]}>
