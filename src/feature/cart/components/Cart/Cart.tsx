@@ -5,44 +5,10 @@ import style from "./Cart.module.css";
 import Image from "next/image";
 import { formatText } from "@/shared/utils/text";
 import Button from "@/shared/components/atoms/Button";
+import { useCart } from "../../hooks/useCart";
 
 const Cart = () => {
-  const totalCartItems = 3; // Example value
-  const totalCart = 1500; // Example value
-  const removeFromCart = (id: number, capacity: string, color: string) => {
-    console.log(
-      `Remove item with id: ${id}, capacity: ${capacity}, color: ${color}`
-    );
-  };
-  const cart = [
-    {
-      id: 1,
-      name: "iPhone 13 Pro Max",
-      capacity: "256GB",
-      color: "Silver",
-      price: 1200,
-      imageUrl:
-        "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp",
-    },
-    {
-      id: 2,
-      name: "Samsung Galaxy S21 Ultra",
-      capacity: "128GB",
-      color: "Black",
-      price: 800,
-      imageUrl:
-        "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp",
-    },
-    {
-      id: 3,
-      name: "Google Pixel 6 Pro",
-      capacity: "256GB",
-      color: "Stormy Black",
-      price: 900,
-      imageUrl:
-        "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp",
-    },
-  ];
+  const { cart, totalCartItems, removeFromCart, totalCart } = useCart();
   return (
     <div className={style.container}>
       <Typography
@@ -56,8 +22,8 @@ const Cart = () => {
         {cart.map((item) => (
           <div key={item.id} className={style["cart-item"]}>
             <Image
-              src={item.imageUrl}
-              alt={item.name}
+              src={String(item.images ? item.images[0] : "")}
+              alt={item.title}
               className={style["item-image"]}
               width={500}
               height={500}
@@ -65,15 +31,15 @@ const Cart = () => {
 
             <div className={style["item-details"]}>
               <Typography
-                content={formatText(item.name)}
+                content={formatText(item.title)}
                 size="sm"
                 weight="regular"
                 color="primary"
                 as="h2"
               />
               <Typography
-                content={`${formatText(item.capacity)} | ${formatText(
-                  item.color
+                content={`${formatText(String(item.category))} | ${formatText(
+                  String(item.brand)
                 )}`}
                 size="sm"
                 weight="light"
@@ -90,9 +56,7 @@ const Cart = () => {
               />
               <button
                 className={style.remove}
-                onClick={() =>
-                  removeFromCart(item.id, item.capacity, item.color)
-                }
+                onClick={() => removeFromCart(item.id)}
               >
                 Eliminar
               </button>
@@ -104,7 +68,7 @@ const Cart = () => {
         {totalCartItems > 0 && (
           <div className={style.checkout}>
             <Typography
-              content={`TOTAL`}
+              content={`TOTAL `}
               size="md"
               weight="regular"
               color="primary"

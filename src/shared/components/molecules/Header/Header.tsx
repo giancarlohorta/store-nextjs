@@ -1,3 +1,4 @@
+"use client";
 import { getIcon } from "@/shared/utils/icon";
 import Button from "../../atoms/Button";
 import style from "./Header.module.css";

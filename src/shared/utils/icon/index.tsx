@@ -22,7 +22,14 @@ export const getIcon = (iconName: string) => {
         />
       );
     case "bag":
-      return <Image src="/assets/bag-icon-active.svg" alt="Shopping cart" />;
+      return (
+        <Image
+          src="/assets/bag-icon-active.svg"
+          alt="Shopping cart"
+          width={18}
+          height={18}
+        />
+      );
 
     case "close":
       return (

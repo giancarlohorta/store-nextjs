@@ -8,17 +8,21 @@ import Image from "next/image";
 import SpecsList from "@/shared/components/organisms/SpecsList";
 import { ProductProps } from "../types";
 import ReviewRating from "@/shared/components/atoms/ReviewRating";
+import { useCart } from "@/feature/cart/hooks/useCart";
 
 const Product = ({ data }: ProductProps) => {
+  const { addToCart } = useCart();
   const isLoading = false;
 
   const error = null;
 
-  const handleAddToCart = () => {
-    console.log("Add to cart clicked");
-  };
-
   const image = (data?.images ? data.images[0] : "") as string;
+
+  const handleAddToCart = () => {
+    if (data) {
+      addToCart({ ...data, quantity: 1 });
+    }
+  };
 
   return (
     <>
