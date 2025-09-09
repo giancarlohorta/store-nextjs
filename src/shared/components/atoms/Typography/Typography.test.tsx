@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
 import Typography from "./Typography";
 import style from "./Typography.module.css";
 

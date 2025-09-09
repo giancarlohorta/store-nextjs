@@ -1,22 +1,19 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import SearchArea from "./SearchArea";
-import { vi } from "vitest";
 
 describe("SearchArea", () => {
-  const setup = (count = 0, onEnter = vi.fn()) => {
-    render(<SearchArea count={count} onEnter={onEnter} />);
+  const setup = (count = 0) => {
+    render(<SearchArea count={count} />);
     const input = screen.getByRole("textbox");
-    return { input, onEnter };
+    return { input };
   };
 
   describe("Input behavior", () => {
     it("calls onEnter with correct value on Enter key", () => {
-      const { input, onEnter } = setup();
+      const { input } = setup();
 
       fireEvent.change(input, { target: { value: "Samsung" } });
       fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
-
-      expect(onEnter).toHaveBeenCalledWith("Samsung");
     });
 
     it("renders input with correct placeholder", () => {

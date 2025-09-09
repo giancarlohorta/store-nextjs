@@ -1,10 +1,10 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+
 import Input from "./Input";
 
 describe("Input Component", () => {
   it("should update the input value when the user types and display the clear button", () => {
-    render(<Input placeholder="Search" onEnter={vi.fn()} />);
+    render(<Input placeholder="Search" onEnter={jest.fn()} />);
     const inputElement = screen.getByRole("textbox");
 
     expect(inputElement).toBeInTheDocument();
@@ -18,7 +18,7 @@ describe("Input Component", () => {
   });
 
   it("should call onEnter with the correct value when the Enter key is pressed", () => {
-    const onEnterMock = vi.fn();
+    const onEnterMock = jest.fn();
     render(<Input placeholder="Search" onEnter={onEnterMock} />);
     const inputElement = screen.getByRole("textbox");
 
@@ -28,7 +28,7 @@ describe("Input Component", () => {
   });
 
   it("should clear the input and call onEnter with empty string when the clear button is clicked", () => {
-    const onEnterMock = vi.fn();
+    const onEnterMock = jest.fn();
     render(<Input placeholder="Search" onEnter={onEnterMock} />);
     const inputElement = screen.getByRole("textbox");
 

@@ -1,19 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import Header from "./Header";
-import { BrowserRouter } from "react-router-dom";
 
-const renderHeader = (props = {}) =>
-  render(
-    <BrowserRouter>
-      <Header {...props} />
-    </BrowserRouter>
-  );
+const renderHeader = (props = {}) => render(<Header {...props} />);
 
 describe("Header", () => {
   it("renders the logo with link to homepage end does not render cart button when 'cart' is false", () => {
     renderHeader();
 
-    const logo = screen.getByLabelText(/mbst logo/i);
+    const logo = screen.getByAltText(/mbst logo/i);
     expect(logo).toBeInTheDocument();
 
     const homeLink = screen.getByRole("link", { name: /mbst logo/i });

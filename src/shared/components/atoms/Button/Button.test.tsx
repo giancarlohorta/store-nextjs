@@ -1,11 +1,9 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import { describe, it, expect, vi } from "vitest";
 import Button from "./Button";
 
 describe("Button Component", () => {
   it("should call the onClick function when the button is clicked", () => {
-    const onClickMock = vi.fn();
+    const onClickMock = jest.fn();
     render(<Button onClick={onClickMock}>Click me</Button>);
 
     const buttonElement = screen.getByRole("button", { name: /click me/i });
@@ -28,11 +26,7 @@ describe("Button Component", () => {
   });
 
   it("should render a Link when the link prop is provided", () => {
-    render(
-      <BrowserRouter>
-        <Button link="/test">Test Link</Button>
-      </BrowserRouter>
-    );
+    render(<Button link="/test">Test Link</Button>);
 
     const linkElement = screen.getByRole("link", { name: /test link/i });
     expect(linkElement).toBeInTheDocument();

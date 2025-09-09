@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import SpecsList from "./SpecsList";
-import { describe, it, expect } from "vitest";
 import { mockProductDetailsData } from "../../../mocks/productDetails";
 
 describe("SpecsList component", () => {

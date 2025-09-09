@@ -1,15 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
 import Item from "./Item";
 import { mockList } from "../../../mocks/products";
 import style from "../../atoms/Typography/Typography.module.css";
 
-const renderItem = () =>
-  render(
-    <BrowserRouter>
-      <Item item={mockList[0]} />
-    </BrowserRouter>
-  );
+const renderItem = () => render(<Item item={mockList[0]} />);
 
 describe("Item component", () => {
   it("renders the image with correct alt text, the brand, name and price", () => {
